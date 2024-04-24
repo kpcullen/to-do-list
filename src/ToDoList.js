@@ -4,7 +4,7 @@ export default function ToDoList({ items, onDelete, onComplete }) {
   return (
     <div className="list-container">
       {items.length === 0 ? (
-        "Start entering your courses to learn!"
+        "Start entering your courses to learn 🧑‍💻"
       ) : (
         <ul className="list-container">
           {items.map((item) => (
