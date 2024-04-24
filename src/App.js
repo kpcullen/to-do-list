@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Header from "./Header";
+import AddToDo from "./AddToDo";
+import ToDoList from "./ToDoList";
+import Stats from "./Stats";
 
-function App() {
+const initialItems = [
+  { name: "JavaScript", complete: false, key: 1 },
+  { name: "CSS", complete: true, key: 2 },
+];
+
+export default function App() {
+  const [items, setItems] = useState(initialItems);
+
+  function handleDeleteItem(key) {
+    setItems((items) => items.filter((item) => item.key !== key));
+  }
+
+  function handleToggleComplete(key) {
+    setItems(
+      items.map((item) =>
+        item.key === key ? { ...item, complete: !item.complete } : item
+      )
+    );
+  }
+
+  function handleSetItems(item) {
+    console.log(item);
+    setItems((items) => [...items, item]);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <AddToDo onAddItem={handleSetItems} />
+      <ToDoList
+        items={items}
+        onDelete={handleDeleteItem}
+        onComplete={handleToggleComplete}
+      />
+      <Stats items={items} />
     </div>
   );
 }
-
-export default App;
