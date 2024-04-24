@@ -100,6 +100,12 @@ input {
   transform: translateY(4px);
 }
 
+.list-container li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
 .stats {
   background-color: #548687;
   display: flex;
