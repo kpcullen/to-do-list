@@ -1,4 +1,3 @@
-import { useState } from "react";
 export default function Item({ item, onDelete, onComplete }) {
   return (
     <li>

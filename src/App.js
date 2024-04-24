@@ -4,13 +4,8 @@ import AddToDo from "./AddToDo";
 import ToDoList from "./ToDoList";
 import Stats from "./Stats";
 
-const initialItems = [
-  { name: "JavaScript", complete: false, key: 1 },
-  { name: "CSS", complete: true, key: 2 },
-];
-
 export default function App() {
-  const [items, setItems] = useState(initialItems);
+  const [items, setItems] = useState([]);
 
   function handleDeleteItem(key) {
     setItems((items) => items.filter((item) => item.key !== key));

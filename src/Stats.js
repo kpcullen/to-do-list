@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function Stats({ items }) {
   const numItems = items.length;
   const completeItems = items.slice().filter((item) => item.complete).length;

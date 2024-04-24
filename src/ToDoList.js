@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Item from "./Item";
 
 export default function ToDoList({ items, onDelete, onComplete }) {
